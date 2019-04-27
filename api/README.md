@@ -1,24 +1,17 @@
-# README
+# Gossip API
 
-This README would normally document whatever steps are necessary to get the
+This doc documents whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+* Ruby 2.4.x
+* Rails 5.2.x
+* Postgresql 9.6
 
-* System dependencies
+## Installing
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Get gems executing `bundle install`.
+* let's initialize the database by `rails db:create`.
+* Execute migrations: `rails db:migrate`.
+* Start puma server by `rails s`.
