@@ -1,0 +1,14 @@
+language: ruby
+dist: trusty
+rvm:
+  - 2.4.2
+
+script:
+  - cd api
+  - bundle install — jobs=2 — retry=3
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
+  - bundle exec rspec
+
+addons:
+  postgresql: 9.6
