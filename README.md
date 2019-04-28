@@ -4,7 +4,7 @@ A medium-like webapp with restful Rails-based API & React/Redux client.
 
 * Conceptually inspired by medium app.
 * Rest Api design guided by [Github guidelines](https://developer.github.com/v3/).
-* Code style bounded by [@rubocop-hq](https://github.com/rubocop-hq/rails-style-guide) & [@airbnb](https://github.com/airbnb/javascript/tree/master/react)
+* Code style bounded by [@rubocop-hq](https://github.com/rubocop-hq/ruby-style-guide) and [@airbnb](https://github.com/airbnb/javascript/tree/master/react)
 
 ## Features
 

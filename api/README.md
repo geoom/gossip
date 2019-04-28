@@ -1,7 +1,6 @@
 # Gossip API
 
-This doc documents whatever steps are necessary to get the
-application up and running.
+This doc documents whatever steps are necessary to get the application up and running.
 
 ## Dependencies
 
@@ -12,6 +11,7 @@ application up and running.
 ## Installing
 
 * Get gems executing `bundle install`.
+* Reset credentials: `rm config/credentials.yml.enc && EDITOR=vim rails credentials:edit`
 * let's initialize the database by `rails db:create`.
 * Execute migrations: `rails db:migrate`.
 * Start puma server by `rails s`.
