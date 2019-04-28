@@ -2,13 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Articles resources', type: :request do
     
-    let!(:articles) { create_list(:article, 10) }
+    let(:user) { create(:user) }
+    let!(:articles) { create_list(:article, 10, created_by: user.id) }
     let(:article_id) { articles.first.id }
+
+    # authorize request
+    let(:headers) { valid_headers }
 
     # Test suite for getting article list
     describe 'GET /articles' do
 
-        before { get '/articles' } 
+        before { get '/articles', params: {}, headers: headers } 
 
         it 'returns articles' do
             # `json` parse JSON responses
@@ -25,7 +29,7 @@ RSpec.describe 'Articles resources', type: :request do
     # Test suite for getting a single article resource
     describe 'GET /articles/:id' do
 
-        before { get "/articles/#{article_id}" }
+        before { get "/articles/#{article_id}", params: {}, headers: headers }
 
         context 'when record exists' do
             
@@ -63,12 +67,12 @@ RSpec.describe 'Articles resources', type: :request do
             { 
                 title: 'Learn a new tool', 
                 content: 'when an unknown printer took a galley of',
-                created_by: '234' 
-            } 
+                created_by: user.id.to_s 
+            }.to_json
         end
 
         context 'when the request is valid' do
-            before { post '/articles', params: valid_input }
+            before { post '/articles', params: valid_input, headers: headers }
       
             it 'creates a article' do
               expect(response_as_hash['title']).to eq('Learn a new tool')
@@ -80,7 +84,9 @@ RSpec.describe 'Articles resources', type: :request do
         end
 
         context 'when the request is invalid' do
-            before { post '/articles', params: { title: 'whatever', content: 'whatever' } }
+            
+            let(:invalid_attributes) { { title: nil, content: 'whatever', created_by: '23' }.to_json }
+            before { post '/articles', params: invalid_attributes, headers: headers }
       
             it 'returns status code 422' do
               expect(response).to have_http_status(422)
@@ -88,7 +94,7 @@ RSpec.describe 'Articles resources', type: :request do
       
             it 'returns a validation failure message' do
               expect(response.body)
-                .to match(/Validation failed: Created by can't be blank/)
+                .to match(/Validation failed: Title can't be blank/)
             end
         end
     

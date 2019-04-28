@@ -23,12 +23,12 @@ module ExceptionHandler
 
     # JSON response with message; Status code 422 - unprocessable entity
     def unprocessable_request(e)
-      json_response({ message: e.message }, :unprocessable_entity)
+        to_http_json({ message: e.message }, :unprocessable_entity)
     end
   
     # JSON response with message; Status code 401 - Unauthorized
     def unauthorized_request(e)
-      json_response({ message: e.message }, :unauthorized)
+        to_http_json({ message: e.message }, :unauthorized)
     end
 
   end
