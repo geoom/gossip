@@ -17,11 +17,11 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'returns success message' do
-        expect(json['message']).to match(/Account created successfully/)
+        expect(response_as_hash['message']).to match(/Account created successfully/)
       end
 
       it 'returns an authentication token' do
-        expect(json['auth_token']).not_to be_nil
+        expect(response_as_hash['auth_token']).not_to be_nil
       end
     end
 
@@ -33,8 +33,8 @@ RSpec.describe 'Users API', type: :request do
       end
 
       it 'returns failure message' do
-        expect(json['message'])
-          .to match(/Validation failed: Password can't be blank, Name can't be blank, Email can't be blank, Password digest can't be blank/)
+        expect(response_as_hash['message'])
+          .to match(/Validation failed: Name can't be blank, Email can't be blank, Password digest can't be blank, Password can't be blank/)
       end
     end
   end
