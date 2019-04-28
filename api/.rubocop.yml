@@ -1,0 +1,78 @@
+AllCops:
+
+  TargetRubyVersion: 2.4
+  TargetRailsVersion: 5.2
+  UseCache: no
+
+  Exclude:
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'spec/*_helper.rb'
+    - 'lib/tasks/**/*'
+    - 'try/**/*'
+    - 'other/**/*'
+    - '**/node_modules/**/*'
+    - 'bin/*'
+
+  DisplayCopNames: yes
+  DisplayStyleGuide: yes
+  ExtraDetails: yes
+
+Rails:
+  Enabled: yes
+
+Style/FrozenStringLiteralComment:
+  Enabled: no
+
+Style/MutableConstant:
+  Enabled: no
+
+Style/Not:
+  Enabled: no
+
+Style/StringLiterals:
+  Enabled: no
+
+Style/Documentation:
+  Enabled: no
+
+Style/SignalException:
+  Enabled: no
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Style/SymbolArray:
+  Enabled: no
+
+Style/PercentLiteralDelimiters:
+  Enabled: no
+
+Style/LambdaCall:
+  Enabled: no
+
+Layout/AlignHash:
+  EnforcedLastArgumentHashStyle: ignore_implicit
+
+Layout/CaseIndentation:
+  IndentOneStep: true
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/ModuleLength:
+  Max: 150
+
+Rails/HasAndBelongsToMany:
+  Enabled: yes
