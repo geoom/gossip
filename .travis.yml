@@ -10,5 +10,11 @@ script:
   - bundle exec rake db:migrate
   - bundle exec rspec
 
+after_success:
+  - bundle exec codeclimate-test-reporter
+
 addons:
   postgresql: 9.6
+  code_climate:
+    repo_token:
+      secure: "uIbdVuojUkCzStLLOs1jJ5YqUlD8dRg1QbAbgjIzxdTD/dZIStsXMkjZvRGxmf5lgq4rIaAOTfHknBVYQBmbFXLdZbFtIinun7zYygiYeGMeFMoZVKC4ekkxCUgS0RETLo9QXWNTiXZlmXfL13ml2ElMzzzbfg974iWWaV5DdKjEysWvuwlHmMlCZMrt8pvI4Ig8rFKRM2U5Rk8CIqrCsvZZAOYZ84v1vB0mldUp67A7Gzrkepgg0QQxBbcvdiO2rshlYFY2Talx/2vj9Bhbs+HjS5SCmSOJQwzWCCevYBgGtlAFuayN7gZn+fU/0RriZy15QHv0vsq2QGiSvAZWIylhrfUVLYdWsd6MX7dytyRMw3JN7gBZd/5CYKMbtrIkjCrwQplNaepu03z7/gh5fIy9DbuUoXX0W19snF5s54EV5Ayjyc8FVDD8ZBjgWG/Kgq2tUKEVwEXY5/JftuHTf9E9Wd0jYjBAvD6xSWyQ8MpicLcVYCJ7AbmfpWE6HbQY2NrrC+saiiKmhCxdsU20z08RBB3LSviw+4f5ueAOpZQXBDjd0de43mK1McobSJC76NTp6647/slimeGE6ka5EsA2lK4cgUDqpTgnWcitwaN9zrZtNh40MqgZia/3B3c1qnD3c6TEU9lpdGpovWcKnTY0jnH4e1cIEccX59qLAxE="
