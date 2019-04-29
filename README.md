@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/geoom/gossip.svg?branch=master)](https://travis-ci.org/geoom/gossip)
 [![Maintainability](https://api.codeclimate.com/v1/badges/cf236bf7e4dc0a96cb62/maintainability)](https://codeclimate.com/github/geoom/gossip/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/cf236bf7e4dc0a96cb62/test_coverage)](https://codeclimate.com/github/geoom/gossip/test_coverage)
 
 A medium-like webapp with restful Rails-based API & React/Redux client.
 
