@@ -15,3 +15,7 @@ This doc documents whatever steps are necessary to get the application up and ru
 * let's initialize the database by `rails db:create`.
 * Execute migrations: `rails db:migrate`.
 * Start puma server by `rails s`.
+
+## Testing
+
+* `bundle exec rspec`
