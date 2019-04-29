@@ -24,3 +24,8 @@ This will be the first aproximation regarding high availability archtecture
 ![Imgur](https://i.imgur.com/7DAvTLJ.png)
 
 You can read more about it in [design topic](https://github.com/geoom/gossip/blob/master/design.md).
+
+## Installing & Operation instrucctions
+
+All technical files is under [`api`(as server)](https://github.com/geoom/gossip/tree/master/api) and [`web`(as client)](https://github.com/geoom/gossip/tree/master/web) folder.
+
