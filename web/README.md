@@ -1,4 +1,4 @@
-# Gossip API
+# Gossip WEB
 
 This code is a client for API.
 
