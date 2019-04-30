@@ -1,9 +1,10 @@
 class User < ApplicationRecord
 
-    has_many :articles, foreign_key: :created_by
+    has_many :articles, dependent: :destroy
 
-    validates :name, presence: true
     validates :email, presence: true
+    validates :email, uniqueness: true
+    validates :email, length: { minimum: 8 }
     validates :password_digest, presence: true
 
     has_secure_password

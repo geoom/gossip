@@ -1,7 +1,7 @@
 FactoryBot.define do
     factory :article do
-        title { Faker::Lorem.word }
+        title { Faker::Lorem.words(3) }
         content { Faker::Lorem.paragraphs(3) }
-        created_by { Faker::Number.number(10) }
+        user_id { Faker::Number.number(10) }
     end
 end

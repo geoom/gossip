@@ -26,7 +26,7 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when invalid request' do
-      before { post '/signup', params: {}, headers: headers }
+      before { post '/signup', params: {email: '1@e.com'}.to_json  , headers: headers }
 
       it 'does not create a new user' do
         expect(response).to have_http_status(422)
@@ -34,7 +34,7 @@ RSpec.describe 'Users API', type: :request do
 
       it 'returns failure message' do
         expect(response_as_hash['message'])
-          .to match(/Validation failed: Name can't be blank, Email can't be blank, Password digest can't be blank, Password can't be blank/)
+          .to match("Validation failed: Email is too short (minimum is 8 characters), Password digest can't be blank, Password can't be blank")
       end
     end
   end

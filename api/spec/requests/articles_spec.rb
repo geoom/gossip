@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Articles resources', type: :request do
     
-    let(:user) { create(:user) }
-    let!(:articles) { create_list(:article, 10, created_by: user.id) }
+    let!(:user) { create(:user) }
+    let!(:articles) { create_list(:article, 10, user_id: user.id) }
     let(:article_id) { articles.first.id }
 
     # authorize request
@@ -65,9 +65,9 @@ RSpec.describe 'Articles resources', type: :request do
 
         let(:valid_input) do 
             { 
-                title: 'Learn a new tool', 
-                content: 'when an unknown printer took a galley of',
-                created_by: user.id.to_s 
+                title: 'this the most amazing title ever written by white walkers', 
+                content: 'when an unknown printer took a galley of when an unknown printer took a galley of when an unknown printer took a galley of',
+                user_id: user.id
             }.to_json
         end
 
@@ -75,7 +75,7 @@ RSpec.describe 'Articles resources', type: :request do
             before { post '/articles', params: valid_input, headers: headers }
       
             it 'creates a article' do
-              expect(response_as_hash['title']).to eq('Learn a new tool')
+              expect(response_as_hash['title']).to eq('this the most amazing title ever written by white walkers')
             end
       
             it 'returns status code 201' do
@@ -85,7 +85,7 @@ RSpec.describe 'Articles resources', type: :request do
 
         context 'when the request is invalid' do
             
-            let(:invalid_attributes) { { title: nil, content: 'whatever', created_by: '23' }.to_json }
+            let(:invalid_attributes) { { title: nil, content: 'whatever', user_id: user.id }.to_json }
             before { post '/articles', params: invalid_attributes, headers: headers }
       
             it 'returns status code 422' do
