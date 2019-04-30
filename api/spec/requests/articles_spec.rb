@@ -97,7 +97,32 @@ RSpec.describe 'Articles resources', type: :request do
                 .to match(/Validation failed: Title can't be blank/)
             end
         end
+    end
+
+    # Test suite for partial update
+    describe 'PATCH /articles/:id' do
+        let(:valid_attributes) { { title: 'A new title for you' }.to_json }
+
+        context 'when the record exists' do
+            before { patch "/articles/#{article_id}", params: valid_attributes, headers: headers }
+      
+            it 'updates the record' do
+              expect(response.body).not_to be_empty
+            end
+      
+            it 'returns status code 200' do
+              expect(response).to have_http_status(200)
+            end
+        end
+    end
+
+    # Test suite for article deletion
+    describe 'DELETE /articles/:id' do
+        before { delete "/articles/#{article_id}", params: {}, headers: headers }
     
+        it 'returns status code 204' do
+          expect(response).to have_http_status(204)
+        end
     end
 
 end

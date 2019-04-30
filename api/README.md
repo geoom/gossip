@@ -26,4 +26,6 @@ This doc documents whatever steps are necessary to get the application up and ru
 * `http :3000/auth/login email=myemail@email.com password=myaccess`
 * `http :3000/signup email=whatever@email.com password=foobar password_confirmation=foobar`
 * `http :3000/articles Accept:'application/vnd.gossip.v1+json' Authorization:'YOUR_AUTH_TOKEN_HERE'`
-* `http POST :3000/articles title='Sequi ut in. Perferendis est null' content='Voluptatem voluptatibus occaecati' user_id=1 Authorization:'YOUR_AUTH_TOKEN_HERE'`
+* `http POST :3000/articles title='Sequi ut in. Perferendis est null' content='Voluptatem voluptatibus occaecati' user_id=1 Accept:'application/vnd.gossip.v1+json'  Authorization:'YOUR_AUTH_TOKEN_HERE'`
+* `http PATCH :3000/articles/1 title='new title for new times' Accept:'application/vnd.gossip.v1+json' Authorization:'YOUR_AUTH_TOKEN_HERE'`
+* `http DELETE :3000/articles/17 Authorization:'YOUR_AUTH_TOKEN_HERE'`
