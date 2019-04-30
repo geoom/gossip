@@ -22,7 +22,7 @@ class V1::ArticlesController < ApplicationController
     private
 
     def article_params
-      params.permit(:title, :content, :created_by)
+      params.permit(:title, :content, :user_id)
     end
   
     def get_article
