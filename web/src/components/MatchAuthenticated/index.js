@@ -3,29 +3,30 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 type Props = {
+  path: string,
+  exact?: any,
   component: any,
-  pattern: string,
-  exactly?: boolean,
   isAuthenticated: boolean,
   willAuthenticate: boolean,
 }
 
-const MatchAuthenticated = ({
-  pattern,
-  exactly,
+const MatchAuthenticated = ({ 
+  path,
+  exact,
   isAuthenticated,
   willAuthenticate,
-  component: Component,
-}: Props) =>
-  <Route
-    exact={exactly}
-    path={pattern}
-    render={(props) => {
-      if (isAuthenticated) { return <Component {...props} />; }
-      if (willAuthenticate) { return null; }
-      if (!willAuthenticate && !isAuthenticated) { return <Redirect to={{ pathname: '/login' }} />; }
-      return null;
-    }}
-  />;
+  component: Component
+}: Props) => (
+    <Route 
+      exact={exact}
+      path={path}
+      render={ props => { 
+        if (isAuthenticated) { return <Component {...props} />; }
+        if (willAuthenticate) { return null; }
+        if (!willAuthenticate && !isAuthenticated) { return <Redirect to={{ pathname: '/login' }} />; }
+        return null;
+      }} 
+    />
+);
 
 export default MatchAuthenticated;

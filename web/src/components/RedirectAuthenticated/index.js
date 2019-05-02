@@ -3,29 +3,30 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 type Props = {
+  path: string,
+  exact?: any,
   component: any,
-  pattern: string,
-  exactly?: boolean,
   isAuthenticated: boolean,
   willAuthenticate: boolean,
 }
 
 const RedirectAuthenticated = ({
-  pattern,
-  exactly,
+  path,
+  exact,
   isAuthenticated,
   willAuthenticate,
-  component: Component,
-}: Props) =>
+  component: Component
+}: Props) => (
   <Route
-    exact={exactly}
-    path={pattern}
+    exact={exact}
+    path={path}
     render={(props) => {
       if (isAuthenticated) { return <Redirect to={{ pathname: '/' }} />; }
       if (willAuthenticate) { return null; }
       if (!willAuthenticate && !isAuthenticated) { return <Component {...props} />; }
       return null;
     }}
-  />;
+  />
+);
 
 export default RedirectAuthenticated;
