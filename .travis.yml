@@ -2,6 +2,8 @@ language: ruby
 dist: trusty
 rvm:
   - 2.4.2
+notifications:
+  - false
 
 script:
   - cd api

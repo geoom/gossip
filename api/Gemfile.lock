@@ -48,6 +48,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    ansi (1.5.0)
     arel (9.0.0)
     ast (2.4.0)
     backports (3.14.0)
@@ -90,6 +91,7 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     highline (1.7.10)
+    hirb (0.7.3)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.2)
@@ -196,6 +198,10 @@ GEM
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
+    simplecov-console (0.4.2)
+      ansi
+      hirb
+      simplecov
     simplecov-html (0.10.2)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -251,6 +257,8 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   rubocop
   shoulda-matchers (~> 3.1)
+  simplecov (~> 0.13.0)
+  simplecov-console (~> 0.4.2)
   spring
   spring-watcher-listen (~> 2.0.0)
   travis (~> 1.8)
